@@ -1,0 +1,33 @@
+<!Doctype html>
+<html>
+    <head lang='en'>
+        <title>Timestamp Microservice</title>
+        <meta charset="utf8">
+        <link rel="stylesheet" href="style/main.css">
+    </head>
+    <body>
+        <h1>Welcome to Timestamp Microservice</h1>
+        <h2 style="color: red">Users stories</h2>
+        <ol>
+            <li>
+                <p>I can pass a string as a parameter, and it will check to see whether </p>
+                <p>that string contains either a unix timestamp or a natural language</p> 
+                <p>date (example: January 1, 2016).</p>
+            </li>
+            <li>
+                <p>If it does, it returns both the Unix timestamp and the natural language</p> 
+                <p>form of that date.</p>
+            </li>
+            <li>
+                 <p>If it does not contain a date or Unix timestamp, it returns null for</p> 
+                 <p>those properties.</p>
+            </li>
+        </ol>
+        <h3>Example input:</h3>
+        <p><code>https://timestamp-microservice.herokuapp.com/March%2019%201994</code></p>
+        <p><code>https://timestamp-microservice.herokuapp.com/764060400</code></p>
+        <h3>Example output:</h3>
+        <p><code>{ "unix": 764035200, "natural": "March 19, 1994" }</code></p>
+        <script src="/client.js"></script>
+    </body>
+</html>
