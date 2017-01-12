@@ -1,17 +1,9 @@
 var express = require('express');
-var fs = require('fs');
 var app = express();
-app.use(express.static(__dirname));
-/*app.get('/', function (req, res) {
-    req.on('error', function (err) {
-        console.error(err);
-    });
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.sendFile('index.html');
-});*/
-
 var months = ['January', 'February', 'March', 'April', 'May', 
 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+app.use(express.static(__dirname));
 app.get('/:time', function (req, res) {
     req.on('error', function (err) {
         console.error(err);
@@ -24,7 +16,6 @@ app.get('/:time', function (req, res) {
         date = new Date(decodeURI(time));
     }
 
-    //res.writeHead(200, { 'Content-Type': 'application/json' });
     var obj = { 
         unix: date.getTime(), 
         natural: [
