@@ -3,6 +3,7 @@ var app = express();
 var months = ['January', 'February', 'March', 'April', 'May', 
 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+app.set('port', process.env.PORT || 8080);
 app.use(express.static(__dirname));
 app.get('/:time', function (req, res) {
     req.on('error', function (err) {
@@ -30,4 +31,6 @@ app.get('/:time', function (req, res) {
 app.on('error', function (err) {
     console.error(err);
 });
-app.listen(8080);
+app.listen(app.get('port'), function () {
+    console.log('Node app is running on port', app.get('port'))
+});
