@@ -9,16 +9,18 @@ app.get('/:time', function (req, res) {
     req.on('error', function (err) {
         console.error(err);
     });
+
     var time = req.params.time;
     var date = null;
-    if (Number.isNaN(time)) {
-        date = new Date(Number(time));
-    } else {
+    var value = Number(time);
+    if (Number.isNaN(value)) {
         date = new Date(decodeURI(time));
+    } else {
+        date = new Date(value * 1000);
     }
 
     var obj = { 
-        unix: date.getTime(), 
+        unix: Math.round(date.getTime()/1000.0), 
         natural: [
             months[date.getMonth()], 
             date.getDate() + ',', 
